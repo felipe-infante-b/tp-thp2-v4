@@ -1,13 +1,10 @@
 import { Router } from "express";
-import Controller from "../controllers/Controller.js";
+import userRoutes from "./userRoutes.js";
+import rolesRoutes from "./rolesRoutes.js";
 
-const controller= new Controller()
 const routes = Router();
 
-routes.get("/", controller.getAllFrase)
-routes.get("/:cantidad", controller.getPalabrasApi)
-routes.post("/", controller.create)
-
-
+routes.use("/roles", rolesRoutes);
+routes.use("/users", userRoutes);
 
 export default routes;
